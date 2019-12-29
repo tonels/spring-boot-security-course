@@ -25,6 +25,7 @@ public class StudentManagementController {
         return STUDENTS;
     }
 
+    // 这里只有 'student:write' 权限的用户才可访问这个方法
     @PostMapping
     @PreAuthorize("hasAuthority('student:write')")
     public void registerNewStudent(@RequestBody Student student) {
