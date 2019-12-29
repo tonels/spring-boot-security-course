@@ -13,12 +13,10 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "index", "/css/*", "/js/*")
-                .permitAll()
-                .anyRequest()
-                .authenticated()
+                .antMatchers("/", "index", "/css/*", "/js/*").permitAll() // 这些资源文件允许所有
+                .anyRequest().authenticated() // 所有请求，都需要认证鉴权
                 .and()
-                .httpBasic();
+                .httpBasic(); // basic authentication
     }
 
 }
