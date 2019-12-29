@@ -7,7 +7,7 @@ import java.util.Set;
 import static com.example.demo.security.ApplicationUserPermission.*;
 
 public enum ApplicationUserRole {
-    STUDENT(Sets.newHashSet()),
+    STUDENT(Sets.newHashSet()), // 这里 null 默认是不校验鉴权信息，即用户所有接口权限
     ADMIN(Sets.newHashSet(COURSE_READ, COURSE_WRITE, STUDENT_READ, STUDENT_WRITE)),
     ADMINTRAINEE(Sets.newHashSet(COURSE_READ, STUDENT_READ));
 
